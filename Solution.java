@@ -8,8 +8,6 @@ import java.util.function.*;
 import java.util.regex.*;
 import java.util.stream.*;
 
-import org.testng.IModule;
-
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
@@ -25,20 +23,21 @@ class Result {
      */
 
     public static int minMoves(List<Integer> arr) {
-        // Write your code here
-
-        int ones = 0, flips = 0;
-        for (int x : a) {
-            if (x == 1) {
-                ones++;
-            } else {
-                flips = Math.min(flips + 1, ones);
-            }
+        // Target: all 1s first. Count total 1s (k), then every 0 found in the
+        // first k positions pairs with a misplaced 1 later -> one swap each.
+        int ones = 0;
+        for (int x : arr) {
+            if (x == 1) ones++;
+            
         }
-        System.out.println("swaps " + flips);
-        return flips;    }
-    }
 
+        int swaps = 0;
+        for (int i = 0; i < ones; i++) {
+            if (arr.get(i) == 0) swaps++;
+            
+        }
+        return swaps;
+    }
 }
 
 public class Solution {

@@ -1,9 +1,11 @@
 public class MaxLenNonRepeatingString {
-
+    import java.util.HashMap;
+    import java.util.Map;
+    
   private class Solution {
 
     public int lengthOfLongestSubstring(String str) {
-      String Map<Character, Integer> map = new HashMap<>();
+      Map<Character, Integer> map = new HashMap<>();
       int maxlen = 0;
       int left = 0;
       for (int i = 0; i < str.length(); i++) {
@@ -21,4 +23,18 @@ public class MaxLenNonRepeatingString {
       return maxlen;
     }
   }
+
+
+  public static void main(String[] args) {
+    Solution solution = new MaxLenNonRepeatingString().new Solution();
+    String testStr = "abcabcbb";
+    int result = solution.lengthOfLongestSubstring(testStr);
+    System.out.println("Test string: " + testStr);
+    System.out.println("Max length: " + result);
+
+    result = solution.lengthOfLongestSubstring("1R1T7R");
+    System.out.println("Test string: " + "1R1T7R");
+    System.out.println("Max length: " + result);
+  }
+
 }
